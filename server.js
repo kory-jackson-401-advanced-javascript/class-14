@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Route Definitions
 app.use(authRoutes);
-app.use(v1Routes);
+app.use('/api/v1/', v1Routes);
 
 // 404 / not found handler
 app.use('*', notFoundHandler);

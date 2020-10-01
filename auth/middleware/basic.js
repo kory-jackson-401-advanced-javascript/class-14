@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
     // Get the username and password from the user
     // It will be in the headers
     let authorization = req.headers.authorization;
-    let encoded = authorization.split(' ')[0]
+    let encoded = authorization.split(' ')[1]
     let creds = base64.decode(encoded);
     let [username, password] = creds.split(":");
 
@@ -30,6 +30,7 @@ module.exports = async (req, res, next) => {
     next();
 
   } catch (e) {
+    console.log(e)
     next("Invalid Login")
   }
 

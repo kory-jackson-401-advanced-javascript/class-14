@@ -3,10 +3,10 @@
 const mongoose = require('mongoose');
 require('mongoose-schema-jsonschema')(mongoose);
 
-const Todo = mongoose.Schema({
+const todo = mongoose.Schema({
   text: { type: String, required: true },
   assignee: { type: String },
-  complete: { type: Boolean, default: false },
+  complete: { type: Boolean, default:false },
   difficulty: { type: Number, default: 1 },
 });
 
