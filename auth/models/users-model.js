@@ -19,7 +19,7 @@ function generateToken() {
   let tokenObject = {
     username: this.username,
   }
-  let token = jwt.sign(tokenObject, process.env.SHOES)
+  let token = jwt.sign(tokenObject, process.env.SECRET)
   return token;
 }
 
@@ -39,7 +39,7 @@ users.statics.validateBasic = async function (username, password) {
 
 users.statics.authenticateWithToken = async function (token) {
   try {
-    const parsedToken = jwt.verify(token, process.env.SHOES);
+    const parsedToken = jwt.verify(token, process.env.SECRET);
     const user = this.findOne({ username: parsedToken.username })
     return user;
   } catch (e) {
